@@ -1954,6 +1954,29 @@ export default class JiraApi {
     })));
   }
 
+
+
+
+
+
+  /** Pass a search query to Jira
+   * [Jira Doc](https://docs.atlassian.com/jira/REST/latest/#d2e4424)
+   * @name searchJira
+   * @function
+   * @param {string} filterName - Filter Name
+   * @param {string} expand - The resource expansion to return additional fields in the response
+   */
+   searchFilter(filterName, expand) {
+    return this.doRequest(this.makeRequestHeader(this.makeUri({
+      pathname: '/filter/search',
+     query: {
+       filterName: filterName,
+        expand: expand || ''
+     },
+    })));
+  }
+
+  
   /** Get Filter
    * [Jira Doc](https://docs.atlassian.com/jira-software/REST/cloud/#agile/1.0/filter)
    * @name getFilter
@@ -1962,7 +1985,7 @@ export default class JiraApi {
    */
 
   getFilter(filterId) {
-    return this.doRequest(this.makeRequestHeader(this.makeAgileUri({
+    return this.doRequest(this.makeRequestHeader(this.makeUri({
       pathname: `/filter/${filterId}`,
     })));
   }

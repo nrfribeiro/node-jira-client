@@ -1,18 +1,19 @@
 {
-  "name": "jira-client",
-  "version": "6.21.1",
+  "name": "node-jira-client",
+  "version": "1.0.6",
   "description": "Wrapper for the JIRA API",
-  "author": "Steven Surowiec <steven.surowiec@gmail.com>",
+  "author": "Nuno Ribeiro <nfribeiro@gmail.com>",
+  "types": "./lib/index.d.ts",
   "contributors": [
     "Chris Moultrie <chris@moultrie.org>",
     "Lucas Vogelsang <l@lucasvo.com>",
     "Matt Smith <mtscout6+node-jira@gmail.com>",
     "Anson Wayman <kanoyugoro+node-jira@gmail.com>"
   ],
-  "homepage": "http://github.com/jira-node/node-jira-client",
+  "homepage": "https://github.com/nrfribeiro/node-jira-client",
   "repository": {
     "type": "git",
-    "url": "http://github.com/jira-node/node-jira-client"
+    "url": "https://github.com/nrfribeiro/node-jira-client"
   },
   "engine": {
     "node": ">=10.0.0"
@@ -31,7 +32,7 @@
     "request-promise": "^4.1.1"
   },
   "scripts": {
-    "build": "rm -rf lib && babel src --out-dir lib",
+    "build": "rm -rf lib && babel src --out-dir lib && cp index.d.ts ./lib",
     "docs-build": "rm -rf docs && esdoc -c esdoc.json",
     "lint": "eslint ./",
     "test": "npm run lint && mocha --require @babel/register && npm run docs-build",
@@ -44,6 +45,7 @@
     "@babel/plugin-transform-runtime": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "@babel/register": "^7.6.0",
+    "@types/request": "^2.48.5",
     "babel-eslint": "^10.0.3",
     "babel-plugin-add-module-exports": "^1.0.0",
     "chai": "^4.2.0",
@@ -59,7 +61,7 @@
     "release-script": "^1.0.1"
   },
   "release-script": {
-    "docsRepo": "git@github.com:jira-node/jira-node.github.io.git",
+    "docsRepo": "git@github.com:nribeiro/jira-node.github.io.git",
     "docsRoot": "docs/",
     "tmpDocsRepo": "tmp-docs-repo"
   }
